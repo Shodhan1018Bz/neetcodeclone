@@ -2,13 +2,13 @@ const express=require("express");
 
 const app= express();
 
-app.get("/",function(req,res){
-    res.send("Hello world!!")
+app.use(express.static('frontend'));
+
+app.get("/html",(req,res)=>{
+    res.sendFile(__dirname+"/frontend/index.html");
 })
 
-app.get("/myname",function(req,res){
-    res.send("Shodhan ")
-})
+
 
 app.listen(3000,function(){
     console.log("Server is running.... on port 3000")
