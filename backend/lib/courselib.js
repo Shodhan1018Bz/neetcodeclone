@@ -1,6 +1,10 @@
 const courseModel=require("../models/courseModel")
+const express=require("express");
+
+
+
 module.exports.getAllCourses=async function(){
-        return await courseModel.find({});
+         return await courseModel.find({});
 }
 
 module.exports.createCourse=async function(courseInput){

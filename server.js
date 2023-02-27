@@ -1,13 +1,16 @@
 const express=require("express");
 const dotenv=require("dotenv");
 const { default: mongoose } = require("mongoose");
+const {router}=require("./backend/router/router");
+const courseLib=require("./backend/lib/courselib")
 dotenv.config();
 const app= express();
 const str=process.env.MONGO_CONNECTION_STRING;
-const courseLib=require("./backend/lib/courselib")
+
 
 app.use(express.static('frontend'));
 app.use(express.json());
+app.use("/",router);
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/frontend/index.html");
