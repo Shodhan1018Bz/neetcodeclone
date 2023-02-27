@@ -7,10 +7,14 @@ const str=process.env.MONGO_CONNECTION_STRING;
 const courseLib=require("./backend/lib/courselib")
 
 app.use(express.static('frontend'));
+app.use(express.json());
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/frontend/index.html");
 })
+
+
+
 mongoose.set('strictQuery', true);
 mongoose.connect(str,async (err)=>{
     if(err){
