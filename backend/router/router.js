@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get("/coursesList",async (req,res,next)=>{
     const courses= await getAllCourses();
-    res.json({courses:courses});
+    res.status(200).json({courses:courses});
 });
 
 
