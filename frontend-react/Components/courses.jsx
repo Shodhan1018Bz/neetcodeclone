@@ -1,7 +1,7 @@
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-function Courses(props) {
+function Courses() {
     const [coursesList,setcourseList]=useState([]);
     async function fetchCourse(){
         await axios.get("https://drab-cyan-gecko-wig.cyclic.app/coursesList",{mode:'cors'})
