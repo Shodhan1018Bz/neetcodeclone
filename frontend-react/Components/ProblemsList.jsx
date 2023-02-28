@@ -8,7 +8,7 @@ function ProblemList(props){
 
     if(!props.problemList || props.problemList.length==0){
         return(
-            <div style={{width:"100%",height:"100vh"}}  className=' d-flex justify-content-center  align-items-center'>
+            <div style={{width:"100%",height:"100vh" }}  className=' d-flex justify-content-center  align-items-center'>
                 <div   className="spinner-border " role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
