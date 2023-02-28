@@ -29,7 +29,6 @@ mongoose.connect(str,async (err)=>{
         const courses= await courseLib.getAllCourses();
         console.log(courses)
         app.listen(3000,function(){
-            
             console.log("Server is running.... on port 3000")
         })
     }
