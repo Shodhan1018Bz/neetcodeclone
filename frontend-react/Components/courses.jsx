@@ -1,7 +1,7 @@
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-function Courses(props) {
+function Courses() {
     const [coursesList,setcourseList]=useState([]);
     async function fetchCourse(){
         await axios.get("https://drab-cyan-gecko-wig.cyclic.app/coursesList",{mode:'cors'})
@@ -32,11 +32,12 @@ function Courses(props) {
     // console.log(coursesList)
   return (
     
-    <div className='m-4'>
+    <div className='m-4' >
+        
         {
             coursesList.map((courses)=>{
                 return (
-                <div className='w-25'>
+                <div className='w-25'  key={courses.id}>
             <a href="" className='text-decoration-none'>
             <Card shadow="sm" p="lg" radius="md" withBorder>
                 <Card.Section>
@@ -48,16 +49,25 @@ function Courses(props) {
                 </Card.Section>
 
                 <Group position="apart" mt="md" mb="xs">
-                    <Text weight={500}>{courses.title}</Text>
+                    <Text 
+                     variant="gradient"
+                     gradient={{ from: 'black', to: 'black', deg: 45 }}
+                     sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
+                     ta="center"
+                     fz="xl"
+                     fw={700}
+                    >Algorithms & Data Structures for Beginners</Text>
                     
                 </Group>
 
-                <Text size="sm" color="dimmed">
-                    With Fjord Tours you can explore more of the magical fjord landscapes with tours and
-                    activities on and around the fjords of Norway
+                <Text fz="md" fw="700">
+                Learn the foundations of coding interviews.
                 </Text>
 
-                <div className='text-center' >
+                <div className='text-center mt-4' >
+                    <Badge color="blue" variant="light">
+                     8.5hrs
+                    </Badge>
                     <Badge color="green" variant="light">
                      {courses.level}
                     </Badge>

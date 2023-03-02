@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from "react-bootstrap/Button"
 
 function OurNavbar() {
-    return  <Navbar bg="dark" variant="dark">
+    return  <Navbar bg="#808080" variant="#808080" >
     <Container>
       <Navbar.Brand href="/">Neetcode Clone</Navbar.Brand>
       <Nav className="me-auto">
@@ -22,6 +22,7 @@ function OurNavbar() {
           </Button>
         </div>
     </Container>
+    <hr />
   </Navbar>
 }
 

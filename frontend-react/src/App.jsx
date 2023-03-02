@@ -3,8 +3,10 @@ import reactLogo from './assets/react.svg'
 import OurNavbar from '../components/navbar'
 import ProblemList from '../Components/problemsList';
 import axios from "axios";
+import CourseLessonTabs from '../Components/CourseLessonTabs';
 import Courses from "../Components/courses"
 import { BrowserRouter, Routes, Route, json } from "react-router-dom";
+
 
 function App() {
 
@@ -33,12 +35,13 @@ function App() {
   // console.log(coursesList)
   return (
     <div className="App">
+      
       <OurNavbar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProblemList problemList={problemList} />} />
           <Route path="/practice" element={<ProblemList problemList={problemList} />} />
-          <Route path="/courses" element={<Courses />}/>
+          <Route path="/courses" element={<CourseLessonTabs/>}/>
           <Route path="/*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </BrowserRouter>
