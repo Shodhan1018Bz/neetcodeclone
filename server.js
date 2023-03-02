@@ -1,5 +1,6 @@
 const express=require("express");
 const dotenv=require("dotenv");
+const path = require('path');
 const { default: mongoose } = require("mongoose");
 const {router}=require("./backend/router/router");
 const courseLib=require("./backend/lib/courselib")
@@ -16,6 +17,11 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/frontend/index.html");
 })
 
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});
 
 
 mongoose.set('strictQuery', true);
@@ -28,7 +34,7 @@ mongoose.connect(str,async (err)=>{
         await courseLib.createFirstCourse();
         const courses= await courseLib.getAllCourses();
         console.log(courses)
-        app.listen(3000,function(){
+        app.listen(process.env.PORT||3000,function(){
             console.log("Server is running.... on port 3000")
         })
     }
